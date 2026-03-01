@@ -1,7 +1,12 @@
  let currentTab = "all";
    
 const tabActive =['bg-[#3B82F6]','border-[#3B82F6]',"text-white"];
-const tabInactive =['bg-transparent', 'border-slate-200', 'text-black','text-slate-700']
+const tabInactive =['bg-transparent', 'border-slate-200', 'text-black','text-slate-700'];
+
+
+const allContainer = document.getElementById("all-container");
+const interviewContainer = document.getElementById("interview-container");
+const rejectedContainer = document.getElementById("rejected-container");
 
  function switchTab(tab){
 
@@ -17,6 +22,23 @@ for(const t of tabs){
     tabName.classList.remove(...tabActive);
     tabName.classList.add(...tabInactive);
   }
+}
+
+const pages = [allContainer,interviewContainer,rejectedContainer];
+
+for(const section of pages){
+    section.classList.add("hidden")
+}
+
+
+if(tab === "all"){
+    allContainer.classList.remove("hidden")
+}
+else if(tab === "interview"){
+    interviewContainer.classList.remove("hidden")
+}
+else{
+    rejectedContainer.classList.remove("hidden")
 }
 }
 
