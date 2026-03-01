@@ -58,16 +58,16 @@
         </div>
 
         <div class="btn-container gap-2 ">
-            <button   id="all-btn" class="all btn  bg-black text-white px-12 mr-2 shadow">All</button>
-            <button  id="interview-btn" class="btn px-12 text-[#383d44] bg-white mr-2 shadow">Interview</button>
-            <button  id="rejected-btn" class="btn px-12 text-[#383d44] bg-white shadow">Rejected</button>
+            <button onclick="switchTab('all')"  id="tab-all" class=" btn   px-12 mr-2 shadow">All</button>
+            <button onclick="switchTab('interview')" id="tab-interview" class="btn px-12 mr-2 shadow">Interview</button>
+            <button onclick="switchTab('rejected')" id="tab-rejected" class="btn px-12  shadow">Rejected</button>
         </div>
 
     </section>
 
-    <section id="allCards" class=" space-y-4 mt-12">
+    <section id="all" class=" space-y-4 mt-12">
          
-        <div class="p-24 bg-[#FFFFFF] shadow-sm rounded-md mb-5 text-center space-y-4 ">
+        <div class="p-24 bg-[#FFFFFF] shadow-sm rounded-md mb-5 text-center space-y-4 hidden">
             <img class="mx-auto" src="assets/blank.png" alt="">
             <h1 class="text-[#002C5C] text-2xl font-bold">No jobs available</h1>
             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
@@ -294,6 +294,9 @@
 
 
     </section>
+
+    <section class="hidden">interview section</section>
+    <section class="hidden">rejected section</section>
 
 </main>
     
