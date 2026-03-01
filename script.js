@@ -55,17 +55,19 @@ totalStat.innerText = allContainer.children.length;
 
  document.getElementById("jobs-container").addEventListener("click", function(event){
   const clickElement = event.target;
-  // console.log(clickElement);
+  // console.log(clickElement.parentNode.parentNode.parentNode);
+  const card = clickElement.closest(".cards");
+  console.log(card);
 
 if(clickElement.classList.contains("interview")){
-  console.log("interview clicked");
+ interviewContainer.appendChild(card);
 }
 if(clickElement.classList.contains("rejected")){
-  console.log("rejected clicked");
+  // console.log("rejected clicked");
+  rejectedContainer.appendChild(card)
 }
 
-// prbl
 if(clickElement.classList.contains("delete")){
-  console.log("delete clicked");
+  // console.log("delete clicked");
 }
  });
