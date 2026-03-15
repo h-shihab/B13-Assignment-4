@@ -72,14 +72,18 @@ totalStat.innerText = allContainer.children.length;
   const clickElement = event.target;
   // console.log(clickElement.parentNode.parentNode.parentNode);
   const card = clickElement.closest(".cards");
+
+  const status = card.querySelector(".status")
   console.log(card);
 
 if(clickElement.classList.contains("interview")){
+  status.innerText = "INTERVIEWED"
  interviewContainer.appendChild(card);
  
 }
 if(clickElement.classList.contains("rejected")){
   // console.log("rejected clicked");
+  status.innerText = "REJECTED"
   rejectedContainer.appendChild(card)
   
 }
