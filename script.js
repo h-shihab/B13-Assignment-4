@@ -26,19 +26,33 @@ for(const t of tabs){
 
 const pages = [allContainer,interviewContainer,rejectedContainer];
 
+
+
 for(const section of pages){
     section.classList.add("hidden")
 }
 
+emptyState.classList.add("hidden")
+
 
 if(tab === "all"){
-    allContainer.classList.remove("hidden")
+    allContainer.classList.remove("hidden");
+
+    if(allContainer.children.length < 1){
+    emptyState.classList.remove("hidden")
+    }
 }
 else if(tab === "interview"){
     interviewContainer.classList.remove("hidden")
+    if(interviewContainer.classList.length < 1){
+      emptyState.classList.remove("hidden")
+    }
 }
 else{
-    rejectedContainer.classList.remove("hidden")
+    rejectedContainer.classList.remove("hidden");
+    if(rejectedContainer.classList.length < 1){
+      emptyState.classList.remove("hidden")
+    }
 }
 }
 
@@ -47,7 +61,7 @@ else{
 const totalStat = document.getElementById("stat-total");
 const interviewStat = document.getElementById("stat-interview");
 const rejectedStat = document.getElementById("stat-rejected");
-
+const availableStat = document.getElementById("available")
 
 totalStat.innerText = allContainer.children.length;
  switchTab(currentTab);
@@ -61,13 +75,34 @@ totalStat.innerText = allContainer.children.length;
 
 if(clickElement.classList.contains("interview")){
  interviewContainer.appendChild(card);
+ updateStat();
 }
 if(clickElement.classList.contains("rejected")){
   // console.log("rejected clicked");
   rejectedContainer.appendChild(card)
+  updateStat();
 }
 
 if(clickElement.classList.contains("delete")){
   // console.log("delete clicked");
+  
 }
  });
+
+ function updateStat() {
+  // totalStat.innerText = allContainer.children.length;
+  // interviewStat.innerText = interviewContainer.children.length;
+  // rejectedStat.innerText = rejectedContainer.children.length;
+
+  const counts = {
+    all: allContainer.children.length,
+    interview: interviewContainer.children.length,
+    rejected: rejectedContainer.children.length
+  };
+
+  totalStat.innerText = counts.all;
+  interviewStat.innerText = counts.interview;
+  rejectedStat.innerText = counts.rejected;
+  availableStat.innerText = counts.all
+}
+ updateStat()
