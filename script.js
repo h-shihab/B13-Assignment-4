@@ -11,7 +11,7 @@ const rejectedContainer = document.getElementById("rejected-container");
  function switchTab(tab){
 
 const tabs = ['all','interview','rejected'];
-
+currentTab = tab
 for(const t of tabs){
   const tabName = document.getElementById('tab-'+ t);
   if(t === tab){
@@ -54,6 +54,7 @@ else{
       emptyState.classList.remove("hidden")
     }
 }
+updateStat()
 }
 
 // stat update
@@ -75,18 +76,19 @@ totalStat.innerText = allContainer.children.length;
 
 if(clickElement.classList.contains("interview")){
  interviewContainer.appendChild(card);
- updateStat();
+ 
 }
 if(clickElement.classList.contains("rejected")){
   // console.log("rejected clicked");
   rejectedContainer.appendChild(card)
-  updateStat();
+  
 }
 
 if(clickElement.classList.contains("delete")){
   // console.log("delete clicked");
   
 }
+updateStat()
  });
 
  function updateStat() {
@@ -103,6 +105,6 @@ if(clickElement.classList.contains("delete")){
   totalStat.innerText = counts.all;
   interviewStat.innerText = counts.interview;
   rejectedStat.innerText = counts.rejected;
-  availableStat.innerText = counts.all
+  availableStat.innerText = counts[currentTab]
 }
  updateStat()
