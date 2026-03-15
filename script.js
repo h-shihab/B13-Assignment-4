@@ -86,7 +86,9 @@ if(clickElement.classList.contains("rejected")){
 
 if(clickElement.classList.contains("delete")){
   // console.log("delete clicked");
-  
+  const parent = card.parentNode;
+  parent.removeChild(card);
+    
 }
 updateStat()
  });
@@ -106,5 +108,12 @@ updateStat()
   interviewStat.innerText = counts.interview;
   rejectedStat.innerText = counts.rejected;
   availableStat.innerText = counts[currentTab]
+
+  if(counts[currentTab] < 1){
+     emptyState.classList.remove("hidden")
+  }
+  else{
+     emptyState.classList.add("hidden")
+  }
 }
  updateStat()
